@@ -1,0 +1,30 @@
+.atom {
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 1px;
+    padding: 0px;
+
+    &:hover {
+        background-color: darkseagreen;
+    }
+}
+
+.atomic-num {
+    font-size: smaller;
+    margin-left: 5px;
+}
+
+.symbol {
+    text-align: center;
+    font-weight: 700;
+}
+
+.name {
+    text-align: center;
+    font-size: x-small;
+}
+
+.atomic-mass {
+    text-align: center;
+    font-size: small;
+}

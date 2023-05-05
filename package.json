@@ -1,0 +1,17 @@
+{
+  "name": "periodic-table",
+  "version": "1.0.0",
+  "description": "A fullstack application using MongoDb, Express, React, and Node, with both the frontend and backend will be written in TypeScript. Additional technologies includes Mongoose and Bootstrap.\r <br>\r ## Step One: Initial Setup\r - Create a project folder 'periodic-table' in your repos directory.\r - Within you project folder we will need two folders 'client/' and 'server/', let's start inside the client directory.",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}

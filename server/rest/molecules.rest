@@ -1,0 +1,27 @@
+### [GET] all molecules
+GET http://localhost:1359/ptable/molecules
+
+### [GET] single molecule
+GET http://localhost:1359/ptable/molecules/64535af78ddc7574f40899a2
+
+### [POST] new molecule
+POST http://localhost:1359/ptable/molecules
+Content-Type: application/json
+
+{
+    "casNumber": "124-38-9",
+    "name": "Carbon Dioxide",
+    "formula": "CO2",
+    "molarMass": 44.009
+}
+
+### [PATCH] single molecule
+PATCH http://localhost:1359/ptable/molecules/64535af78ddc7574f40899a2
+Content-Type: application/json
+
+{
+    "formula": "CO2(g)"
+}
+
+### [DELETE] single molecule
+DELETE  http://localhost:1359/ptable/molecules/64535af78ddc7574f40899a2
