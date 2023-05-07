@@ -16,7 +16,7 @@ export const Navbar = () => {
                         <NavDropdown.Divider />
                         <NavDropdown.Item as={Link} to="/species">All Species</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link as={Link} to="about">Lab</Nav.Link>
+                    <Nav.Link as={Link} to="lab">Lab</Nav.Link>
                     <Nav.Link as={Link} to="about">About</Nav.Link>
                 </Nav>
                 <Form className="d-flex">

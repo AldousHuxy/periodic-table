@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { Element } from '../../models/Element';
-import periodicTable from '../../periodic-table.json';
 
 // setup express router
 export const router: Router = Router()
@@ -8,7 +7,8 @@ export const router: Router = Router()
 // [GET] all elements
 router.get('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        res.json(periodicTable)
+        const element = await Element.find()
+        res.json(element)
     } catch (error: any) {
         res.status(500).json({ message: error.message })
     }

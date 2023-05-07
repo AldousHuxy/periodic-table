@@ -1,30 +1,38 @@
+$font-stack: Arial, Helvetica, sans-serif;
+$weight-stack: bold;
+
+%atom-display {
+    text-align: center;
+    font-size: xx-small;
+    font-weight: bold;
+}
+
 .atom {
     border: 1px solid black;
     border-radius: 4px;
     margin: 1px;
-    padding: 0px;
 
     &:hover {
-        background-color: darkseagreen;
+        background-color: grey;
     }
-}
-
-.atomic-num {
-    font-size: smaller;
-    margin-left: 5px;
-}
-
-.symbol {
-    text-align: center;
-    font-weight: 700;
-}
-
-.name {
-    text-align: center;
-    font-size: x-small;
-}
-
-.atomic-mass {
-    text-align: center;
-    font-size: small;
+    
+    .atomic-num {
+        margin-left: 5px;
+        text-align: left;
+        @extend %atom-display
+    }
+    
+    .symbol {
+        font-size: small;
+        @extend %atom-display
+    }
+    
+    .name {
+        font-weight: normal;
+        @extend %atom-display
+    }
+    
+    .atomic-mass {
+        @extend %atom-display
+    }
 }

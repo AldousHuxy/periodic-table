@@ -1,6 +1,19 @@
 import { Schema, model } from 'mongoose';
 
-// setup element interface
+interface IShell {
+    shell: number
+}
+
+interface IIonizationEnergies {
+    ionizationEnergy: number
+}
+
+interface IImage {
+    title: string
+    url: string
+    attribution: string
+}
+
 interface IElement {
     name: string
     appearance: string
@@ -26,16 +39,14 @@ interface IElement {
     yPos: number
     wxPos: number
     wyPos: number
-    shells: string // number[]
+    shells: IShell[]
     electronConfiguration: string
     electronConfigurationSemantic: string
     electronAffinity: number
     electronegativityPauling: number
-    ionizationEnergies: string // number[]
+    ionizationEnergies: IIonizationEnergies[]
     cpkHex: string
-    title: string // { title: string, url: string, attribution: string }
-    url: string // { title: string, url: string, attribution: string }
-    attribution: string // { title: string, url: string, attribution: string }
+    image: IImage
     block: string
 }
 
@@ -65,16 +76,18 @@ const elementSchema = new Schema<IElement>({
     yPos: { type: Number, required: false},
     wxPos: { type: Number, required: false},
     wyPos: { type: Number, required: false},
-    shells: { type: String, required: false}, // number[]
+    shells: [{ type: Number, required: false }],
     electronConfiguration: { type: String, required: false},
     electronConfigurationSemantic: { type: String, required: false},
     electronAffinity: { type: Number, required: false},
     electronegativityPauling: { type: Number, required: false},
-    ionizationEnergies: { type: String, required: false}, // number[]
+    ionizationEnergies: [{ type: String, required: false}],
     cpkHex: { type: String, required: false},
-    title: { type: String, required: false}, // { title: string, url: string, attribution: string }
-    url: { type: String, required: false}, // { title: string, url: string, attribution: string }
-    attribution: { type: String, required: false}, // { title: string, url: string, attribution: string }
+    image: {
+        title: { type: String, required: false},
+        url: { type: String, required: false},
+        attribution: { type: String, required: false}
+    },
     block: { type: String, required: false},
 })
 

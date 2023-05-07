@@ -42,7 +42,9 @@ type ElementProps = {
 
 export const Element = ({ atom }: ElementProps) => {
     return (
-        <div className={`atom ${atom.name.toLowerCase()} ${atom.category.replace(' ', '-').toLowerCase()}`}>
+        <div
+            className={`atom ${atom.name.toLowerCase()} ${atom.category.replace(' ', '-').toLowerCase()} ${atom.block}`}
+        >
             <div className="atomic-num">{atom.number}</div>
             <div className="symbol">{atom.symbol}</div>
             <div className="name">{atom.name}</div>
