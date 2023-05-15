@@ -13,7 +13,7 @@ $weight-stack: bold;
     margin: 1px;
 
     &:hover {
-        background-color: grey;
+        background-color: aliceblue;
     }
     
     .atomic-num {
@@ -35,4 +35,52 @@ $weight-stack: bold;
     .atomic-mass {
         @extend %atom-display
     }
+}
+
+.diatomic-nonmetal {
+    background-color: rgb(127, 240, 121);
+}
+
+.alkali-metal {
+    background-color: rgb(88, 125, 246);
+}
+
+.alkaline-earth-metal {
+    background-color: rgb(131, 240, 240);
+}
+
+.metalloid {
+    background-color: rgb(233, 251, 128);
+}
+
+.polyatomic-nonmetal {
+    background-color: rgb(223, 197, 66);
+}
+
+.diatomic-nonmetal {
+    background-color: rgb(235, 179, 75);
+}
+
+.noble-gas {
+    background-color: rgb(106, 211, 171);
+}
+
+.post-transition-metal {
+    background-color: rgb(243, 108, 108);
+}
+
+.transition-metal {
+    background-color: rgb(243, 108, 198);
+}
+
+.lanthanide {
+    background-color: rgb(108, 108, 243);
+}
+
+.actinide {
+    background-color: rgb(130, 108, 243);
+}
+
+.unknown {
+    background-color: rgb(166, 176, 255);
 }

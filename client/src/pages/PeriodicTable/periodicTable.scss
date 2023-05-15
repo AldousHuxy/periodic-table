@@ -4,6 +4,13 @@
 }
 
 // Start - Table Positioning
+.showcase {
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 1px;
+    grid-area: 1 / 3 / span 3 / span 10  ;
+}
+
 .helium {
     grid-column-start: 18;
 }
