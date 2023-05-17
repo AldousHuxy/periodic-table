@@ -1,6 +1,9 @@
+import { Atom } from "../components/Element/Element"
+
 const diatoms: string[] = ['H', 'N', 'O', 'F', 'Cl', 'I', 'Br']
 
-export const writeEvaluation = (symbols: string[]): string => {
+export const writeEvaluation = (atoms: Atom[]): string => {
+    const symbols: string[] = atoms.map(atom => atom.symbol)
     let evaluation: string[] = []
     let matches: number = 1
     
@@ -30,7 +33,8 @@ export const writeEvaluation = (symbols: string[]): string => {
     return evaluation.join(' + ')
 }
 
-export const displayPreview = (symbols: string[], showState: boolean): string => {
+export const displayPreview = (atoms: Atom[], showState: boolean): string => {
+    const symbols: string[] = atoms.map(atom => atom.symbol)
     let evaluation: string[] = []
     let matches: number = 1
     

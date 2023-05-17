@@ -5,6 +5,7 @@ import cors from 'cors';
 import { logger } from './middleware/logger';
 import { router as molecules } from './routes/api/molecules';
 import { router as elements } from './routes/api/elements';
+import { router as wikipedia } from './routes/api/wikipedia';
 
 // setup express application
 const app: Application = express()
@@ -18,14 +19,15 @@ const db = connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('connected to database'))
 
-// setup middleware
+// configure middleware
 app.use(cors())
 app.use(json())
 app.use(logger)
 
-// set routes
+// configure routes
 app.use('/ptable/molecules', molecules)
 app.use('/ptable/elements', elements)
+app.use('/ptable/wikipedia', wikipedia)
 
 // start server
 const port: string|number = process.env.PORT || 1359

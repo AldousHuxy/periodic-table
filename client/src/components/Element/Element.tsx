@@ -1,4 +1,3 @@
-import { useEvaluation } from '../../context/EvaluationContext';
 import './element.scss';
 
 export type Atom = {
@@ -40,18 +39,18 @@ export type Atom = {
 type ElementProps = {
     atom: Atom
     handleAtomSelect: (atom: Atom) => void
-    updateEvaluation: (symbol: string) => void
+    updateEvaluation: (symbol: Atom) => void
 }
 
 export const Element = ({ atom, handleAtomSelect, updateEvaluation }: ElementProps) => {
 
     const handleClick = () => {
         handleAtomSelect(atom)
-        updateEvaluation(atom.symbol)
+        updateEvaluation(atom)
     }
 
     return (
-        <div
+        <button
             onClick={handleClick}
             className={`atom ${atom.name.toLowerCase()} ${atom.category.replaceAll(' ', '-').toLowerCase()} ${atom.block}`}
         >
@@ -59,6 +58,6 @@ export const Element = ({ atom, handleAtomSelect, updateEvaluation }: ElementPro
             <div className="symbol">{atom.symbol}</div>
             <div className="name">{atom.name}</div>
             <div className="atomic-mass">{atom.atomicMass.toFixed(2)}</div>
-        </div>
+        </button>
     )
 }

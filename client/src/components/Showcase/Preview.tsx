@@ -1,13 +1,16 @@
 import { Card } from "react-bootstrap"
 import { displayPreview } from "../../utilities/writeEvaluation"
+import { Atom } from "../Element/Element"
 
 type PreviewProps = {
-    display: string[]
+    display: Atom[]
     showState: boolean
 }
 
 export const Preview = ({ display, showState }: PreviewProps) => {
     return (
-        <Card className="mt-3 text-center">{(display.length === 0) ?  'Preview' : displayPreview(display, showState)}</Card>
+        <Card className="mt-3 text-center bg-light" style={{ height: '40px' }}>
+            {(display.length === 0) ? '' :  <h3>{`${displayPreview(display, showState)}`}</h3>}
+        </Card>
     )
 }
