@@ -2,7 +2,6 @@
     {
         "casNumber": "7732-18-5",
         "name": "Water",
-        "otherNames": [ "Oxidane" ],
         "formula": "H20",
         "molarMass": 44.009,
         "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Water-3D-balls-A.png",
@@ -20,7 +19,6 @@
     {
         "casNumber": "124-38-9",
         "name": "Carbon dioxide",
-        "otherNames": [ "Carbonic acid gas", "Carbonic anhydride", "Carbonic dioxide", "Carbonic oxide", "Carbon(IV) oxide" ],
         "formula": "CO2",
         "molarMass": 44.009,
         "image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Carbon_dioxide_3D_ball.png",
@@ -35,7 +33,6 @@
     {
         "casNumber": "7647-14-5",
         "name": "Sodium chloride",
-        "otherNames": [ "common salt", "regular salt", "halite", "rock salt", "table salt", "sea salt", "saline" ],
         "formula": "NaCl",
         "molarMass": 58.443,
         "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/NaCl_bonds.svg",
@@ -50,7 +47,6 @@
     {
         "casNumber": "6132-02-1",
         "name": "Sodium carbonate",
-        "otherNames": [ "Soda ash", "washing soda", "soda crystals", "sodium trioxocarbonate" ],
         "formula": "Na2CO3",
         "molarMass": 286.1416,
         "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Uhli%C4%8Ditan_sodn%C3%BD.JPG",
@@ -60,5 +56,20 @@
         "heatCapacity": 112.3,
         "molarEntropy": 125,
         "enthalpyOfFormation": -1130.7
+    },
+    {
+        "casNumber": "7664-41-7",
+        "name": "Ammonia",
+        "formula": "Na2CO3",
+        "molarMass": 17.031,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Ammonia-3D-balls-A.png",
+        "interactiveModel": "https://chemapps.stolaf.edu/jmol/jmol.php?model=N",
+        "appearance": "Colorless gas",
+        "meltingPoint": -77.73,
+        "boilingPoint": -33.34,
+        "shape": "Trigonal pyramid",
+        "heatCapacity": 112.3,
+        "molarEntropy": 193,
+        "enthalpyOfFormation": -46
     }
 ]

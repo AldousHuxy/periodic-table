@@ -38,11 +38,12 @@ export type Atom = {
 
 type ElementProps = {
     atom: Atom
+    atomicNum: number
     handleAtomSelect: (atom: Atom) => void
     updateEvaluation: (symbol: Atom) => void
 }
 
-export const Element = ({ atom, handleAtomSelect, updateEvaluation }: ElementProps) => {
+export const Element = ({ atom, atomicNum, handleAtomSelect, updateEvaluation }: ElementProps) => {
 
     const handleClick = () => {
         handleAtomSelect(atom)

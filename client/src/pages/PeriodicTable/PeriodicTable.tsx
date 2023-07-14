@@ -2,12 +2,13 @@ import { Atom, Element } from '../../components/Element/Element';
 import { Button, Container, Form, InputGroup } from 'react-bootstrap';
 import { Showcase } from '../../components/Showcase/Showcase';
 import { reorderAtoms } from '../../utilities/reorderAtoms';
-import './periodicTable.scss';
 import { FormEvent, useRef, useState } from 'react';
 import { writeEvaluation } from '../../utilities/writeEvaluation';
 import { identifyAtomText } from '../../utilities/identifyAtomText';
 import { Preview } from '../../components/Showcase/Preview';
-import { MoleculeModal } from '../Species/MoleculeModal';
+import './periodicTable.scss';
+import { useToggle } from '../../hooks/useToggle';
+import { findMolecule } from '../../utilities/findMolecule';
 
 type PeriodicTableProps = {
     atoms: Atom[]
@@ -17,8 +18,16 @@ export const PeriodicTable = ({ atoms }: PeriodicTableProps) => {
     const evaluationRef = useRef<HTMLInputElement>(null)
     const [selectedAtom, setSelectedAtom] = useState<Atom|undefined>()
     const [orderedAtoms, setOrderedAtoms] = useState<Atom[]>([])
-    const [showState, setShowState] = useState<boolean>(false)
-    const [modalOpen, setModalOpen] = useState<boolean>(false)
+    const [phase, setPhase] = useToggle(false)
+    const [substrate, setSubstrate] = useState<boolean>(false)
+
+    const evaluateReactants = (e: FormEvent) => {
+        e.preventDefault()
+        findMolecule(orderedAtoms)
+        if (orderedAtoms .length > 0) {
+            setSubstrate(true)
+        }
+    }
 
     const handleTextChange = (e: FormEvent): void => {
         e.preventDefault()
@@ -32,14 +41,11 @@ export const PeriodicTable = ({ atoms }: PeriodicTableProps) => {
     const handleReset = (): void => {
         setOrderedAtoms([])
         setSelectedAtom(undefined)
+        setSubstrate(false)
     }
 
     const updateEvaluation = (atom: Atom): void => {
         setOrderedAtoms(curr => [...curr, atom])
-    }
-
-    const toggleState = (): void => {
-        setShowState(prev => !prev)
     }
 
     return (
@@ -48,13 +54,19 @@ export const PeriodicTable = ({ atoms }: PeriodicTableProps) => {
                 <Showcase atom={selectedAtom}/>
                 {!atoms ? 'Loading...' : reorderAtoms(atoms).map((atom: Atom) => {
                     return (
-                        <Element key={atom.number} atom={atom} handleAtomSelect={handleAtomSelect} updateEvaluation={updateEvaluation}/>
+                        <Element 
+                            key={atom.number} 
+                            atomicNum={atom.number} 
+                            atom={atom} 
+                            handleAtomSelect={handleAtomSelect} 
+                            updateEvaluation={updateEvaluation}
+                        />
                     )
                 })}
             </div>
-            <Preview display={orderedAtoms} showState={showState} />
+            <Preview display={orderedAtoms} phase={phase} substrate={substrate} />
             <InputGroup className="mt-3">
-                <Button variant="success" onClick={() => setModalOpen(true)}>Evaluate</Button>
+                <Button variant="success" onClick={(e: FormEvent) => { evaluateReactants(e) }}>Evaluate</Button>
                 <Form.Control
                     id='evaluationInput'
                     as={'input'}
@@ -63,10 +75,9 @@ export const PeriodicTable = ({ atoms }: PeriodicTableProps) => {
                     onChange={handleTextChange}
                 />
                 <InputGroup.Text>State:</InputGroup.Text>
-                <InputGroup.Checkbox id="state" onChange={toggleState} />
+                <InputGroup.Checkbox id="state" onChange={setPhase} />
                 <Button variant="outline-danger" onClick={handleReset}>Reset</Button>
             </InputGroup>
-            <MoleculeModal show={modalOpen} handleClose={() => setModalOpen(false)} atoms={orderedAtoms} />
         </Container>
     )
 }
